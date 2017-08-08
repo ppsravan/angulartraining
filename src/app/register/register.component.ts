@@ -40,6 +40,9 @@ export class RegisterComponent implements OnInit {
   }
 
   loadMoreCountries() {
+    // reseting the configuration to fire the onchange event.
+    // on change event will fire only when the configuration (data) is reset.
+    // otherwise it's just a change in the existing data.
     this.dropdownConfiguration = new DropdownConfig();
     this.dropdownConfiguration.cssClass = 'form-control';
     this.dropdownConfiguration.data.push({ value: 'CA', text: 'Canada' });
@@ -71,7 +74,5 @@ export class RegisterComponent implements OnInit {
     // }).catch(res => {
     //   console.log(res);
     // });
-
-
   }
 }

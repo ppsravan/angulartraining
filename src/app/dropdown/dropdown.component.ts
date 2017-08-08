@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, OnChanges, DoCheck, SimpleChanges, OnDestroy } from '@angular/core';
 import { DropdownConfig } from '../common/dropdown.config';
 
 @Component({
@@ -6,7 +6,7 @@ import { DropdownConfig } from '../common/dropdown.config';
   templateUrl: './dropdown.component.html',
   styleUrls: ['./dropdown.component.css']
 })
-export class DropdownComponent implements OnInit, OnChanges, DoCheck {
+export class DropdownComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
   @Input()
   configuration: DropdownConfig;
 
@@ -34,6 +34,10 @@ export class DropdownComponent implements OnInit, OnChanges, DoCheck {
   ngDoCheck() {
     // will be fired on any change in the ui. not just this component.
     // console.log('do check');
+  }
+
+  ngOnDestroy() {
+    console.log('destroy');
   }
 
 }
