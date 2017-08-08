@@ -2,8 +2,9 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.2.6.
 
-# Link to notes
-https://sway.com/8iEdDnHhaRvvWpgF
+## Link to notes
+
+The notes for the Angular training can be found at https://sway.com/8iEdDnHhaRvvWpgF. However, this is a running notes and will be updated periodically.
 
 ## Development server
 
