@@ -1,0 +1,38 @@
+<p-dataGrid [value]="products" [paginator]="true" [rows]="20">
+  <p-header>
+    List of Products
+  </p-header>
+  <ng-template let-product pTemplate="item">
+    <div style="padding:3px" class="ui-g-12 ui-md-3">
+      <p-panel [header]="product.Model" [style]="{'text-align':'center'}">
+        <img src="https://unsplash.it/100/?random&id=product._id" width="60">
+        <div class="product-detail">{{product.Model}} - {{product.Make}}</div>
+        <hr class="ui-widget-content" style="border-top:0">
+        <div class="pull-left">
+          <a class="btn btn-outline-primary" (click)="add(product)"><i class="fa fa-plus"></i></a>
+          <label class="badge">{{product.quantity}}</label>
+          <a class="btn btn-outline-danger" (click)="remove(product)"><i class="fa fa-minus"></i></a>
+        </div>
+        <div class="pull-right">
+          <i class="fa fa-search" (click)="displayDialog = true; selectedProduct = product" style="cursor:pointer"></i>
+        </div>
+        <div class="clearfix"></div>
+      </p-panel>
+    </div>
+  </ng-template>
+</p-dataGrid>
+
+<p-dialog header="Product Details" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" width="225"
+  (onAfterHide)="onDialogHide()">
+  <div class="ui-grid ui-grid-responsive ui-grid-pad" *ngIf="selectedProduct" style="font-size:16px;text-align:center;padding:20px">
+    <div class="ui-grid-row">
+      <div class="ui-grid-col-12" style="text-align:center"><img src="https://unsplash.it/150/?random&{{selectedProduct._id}}"></div>
+    </div>
+    <div class="row">
+      <p>{{selectedProduct.Make}}</p>
+      <p>{{selectedProduct.Model}}</p>
+      <p>{{selectedProduct.price}}</p>
+    </div>
+
+  </div>
+</p-dialog>

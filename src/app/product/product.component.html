@@ -1,0 +1,16 @@
+<div class="row">
+  <div *ngFor="let p of products" class="col-md-3">
+    <div class="thumbnail">
+      <img src="https://unsplash.it/200/300/?random" alt="Lights" style="width:100%">
+      <div class="caption">
+        <p>{{p.Make}}</p>
+        <p>{{p.Model}}</p>
+        <p>{{p.price}}</p>
+        <p>
+          <button class="btn btn-primary" (click)="add(p)">+</button>
+          <label class="badge">{{p.quantity}}</label>
+          <button class="btn" (click)="remove(p)">-</button>
+        </p>
+      </div>
+    </div>
+  </div>

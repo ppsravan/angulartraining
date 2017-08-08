@@ -1,0 +1,10 @@
+<form [formGroup]="loginForm" class="form-group">
+  <label class="control-label col-sm-2" for="username">User Name:</label>
+  <div class="col-sm-10">
+    <input type="email" class="form-control" id="username" name="username" [formControl]="loginForm.controls['userName']" placeholder="Enter user name">
+    <span class="text-danger" *ngIf="loginForm.controls['userName'].hasError('required')">User Name is required</span>
+    <span class="text-danger" *ngIf="loginForm.controls['userName'].hasError('minlength')">User Name should be minimum of 3 characters</span>
+    <span class="text-danger" *ngIf="loginForm.controls['userName'].hasError('maxlength')">User Name should be maximum of 10 characters</span>
+  </div>
+  <button class="btn btn-default" type="submit" (click)="login()">Login</button>
+</form>

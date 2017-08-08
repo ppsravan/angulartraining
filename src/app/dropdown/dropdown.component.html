@@ -1,0 +1,3 @@
+<select [ngClass]="configuration.cssClass" (change)="valueChanged()" [(ngModel)]="configuration.selectedValue">
+  <option *ngFor="let i of configuration.data" [value]="i.value">{{i.text}}</option>
+</select>

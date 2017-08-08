@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+<div class="row">
+  <div class="col-md-offset-1 col-md-10">
+    <router-outlet></router-outlet>
+  </div>
+  <div class="row">
+    <select [(ngModel)]="currencyType">
+<option value="inr">Indian Rupees</option>
+<option value="usd">United States Dollar</option>
+</select>
+    <div class="col-md-offset-5 col-md-5">
+      <p>{{price | currency:currencyType:true}}</p>
+      <p>{{phoneNumber | phoneFormat:currencyType }}</p>
+      <p>{{dob | date:"dd/MMM/yyyy HH:mm:ss"}}</p>
+      <p><input type="text" id="numberonlytest" name="numbersonlytest" appRestrictedInput [expression]="numbersOnlyRegex"></p>
+      <p><input type="text" [options]="options" appDatepicker></p>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
