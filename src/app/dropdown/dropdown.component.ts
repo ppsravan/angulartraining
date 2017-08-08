@@ -39,5 +39,4 @@ export class DropdownComponent implements OnInit, OnChanges, DoCheck, OnDestroy 
   ngOnDestroy() {
     console.log('destroy');
   }
-
 }

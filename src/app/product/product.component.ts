@@ -1,14 +1,7 @@
-import {
-  Component,
-  OnInit
-} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {
-  AppConstants
-} from '../common/app.constants';
-import {
-  DataService
-} from '../services/data.service';
+import { AppConstants } from '../common/app.constants';
+import { DataService } from '../services/data.service';
 
 @Component({
   selector: 'app-product',
@@ -23,7 +16,15 @@ export class ProductComponent implements OnInit {
     this.getProductsAsync();
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.dataSvc.getDataFromApiAsObservable(AppConstants.COUNTRIES_API).subscribe(
+      (res) => {
+        console.log('contries is product component');
+      },
+      (err) => {
+        console.log(err);
+      });
+  }
 
   getProductsAsync() {
     this.dataSvc.getDataFromApi(AppConstants.PRODUCTS_API)

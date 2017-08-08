@@ -1,6 +1,7 @@
+import { Observable } from 'rxjs/Rx';
 import { AppComponent } from './../app.component';
 import { DropdownConfig } from './../common/dropdown.config';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 
 import { DataService } from '../services/data.service';
 
@@ -12,14 +13,20 @@ import { AppConstants } from '../common/app.constants';
   styleUrls: ['./register.component.css']
 })
 
-export class RegisterComponent implements OnInit {
+export class RegisterComponent implements OnInit, OnDestroy {
   profile: any;
 
   countries: Array<any>;
   dropdownConfiguration: DropdownConfig;
 
+  subContries: Observable<any>;
+
   register() {
     console.log(this.profile);
+  }
+
+  ngOnDestroy() {
+
   }
 
   constructor(private dataSvc: DataService) {
@@ -49,10 +56,12 @@ export class RegisterComponent implements OnInit {
   }
 
   getCountriesAsync() {
-    this.dataSvc
-      .getDataFromApiAsObservable(AppConstants.COUNTRIES_API)
-      .subscribe(
+    this.subContries = this.dataSvc
+      .getDataFromApiAsObservable(AppConstants.COUNTRIES_API);
+
+    this.subContries.subscribe(
       (res) => {
+        console.log('Countries in register component');
         this.countries = res;
         this.dropdownConfiguration.data = res.map(item => {
           item.value = item.code;
