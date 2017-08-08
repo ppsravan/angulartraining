@@ -6,6 +6,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 The notes for the Angular training can be found at https://sway.com/8iEdDnHhaRvvWpgF. However, this is a running notes and will be updated periodically.
 
+## Download and install
+
+Download the source and run `ng install` to install all the application's dependencies.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
