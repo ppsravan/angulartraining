@@ -39,6 +39,12 @@ export class RegisterComponent implements OnInit {
     this.profile.SelectedCountry = val;
   }
 
+  loadMoreCountries() {
+    this.dropdownConfiguration = new DropdownConfig();
+    this.dropdownConfiguration.cssClass = 'form-control';
+    this.dropdownConfiguration.data.push({ value: 'CA', text: 'Canada' });
+  }
+
   getCountriesAsync() {
     this.dataSvc
       .getDataFromApiAsObservable(AppConstants.COUNTRIES_API)
@@ -65,5 +71,7 @@ export class RegisterComponent implements OnInit {
     // }).catch(res => {
     //   console.log(res);
     // });
+
+
   }
 }
