@@ -13,8 +13,8 @@ export class AppComponent {
   dob = new Date();
   numbersOnlyRegex = '[0-9]';
   options = {
-minDate: '08/03/2017',
-maxDate: '08/20/2017'
+    minDate: '08/03/2017',
+    maxDate: '08/20/2017'
   };
 
   // timeChange() {
